@@ -10,11 +10,7 @@ import (
 func (c *Client) GetCause(causeNumber int) (*Cause, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -29,11 +25,7 @@ func (c *Client) GetCause(causeNumber int) (*Cause, error) {
 func (c *Client) GetCauseBySlug(causeSlug string) (*Cause, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%s", causeSlug)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -48,11 +40,7 @@ func (c *Client) GetCauseBySlug(causeSlug string) (*Cause, error) {
 func (c *Client) GetCauseCampaigns(causeNumber int) (*CauseCampaigns, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d/campaigns", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -67,11 +55,7 @@ func (c *Client) GetCauseCampaigns(causeNumber int) (*CauseCampaigns, error) {
 func (c *Client) GetCauseDonations(causeNumber int) (*CauseDonations, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d/donations", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -86,11 +70,7 @@ func (c *Client) GetCauseDonations(causeNumber int) (*CauseDonations, error) {
 func (c *Client) GetCauseEvents(causeNumber int) (*CauseEvents, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d/fundraising-events", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -105,11 +85,7 @@ func (c *Client) GetCauseEvents(causeNumber int) (*CauseEvents, error) {
 func (c *Client) GetCauseLeaderboards(causeNumber int) (*CauseLeaderboard, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d/leaderboards", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -124,11 +100,7 @@ func (c *Client) GetCauseLeaderboards(causeNumber int) (*CauseLeaderboard, error
 func (c *Client) GetCauseVisibilityOptions(causeNumber int) (*CauseVisibilityOptions, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d/visibility-options", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -164,11 +136,7 @@ func (c *Client) PatchCauseVisibilityOptions(causeNumber int, patchData []byte) 
 func (c *Client) GetCausePermissions(causeNumber int) (*CausePermissions, error) {
 	url := fmt.Sprintf(c.BaseURL+"causes/%d/visibility-options", causeNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}

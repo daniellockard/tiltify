@@ -110,3 +110,11 @@ func TestCampaignGetBadOverall(t *testing.T) {
 	}
 	client.SetURL("https://tiltify.com/api/v3/")
 }
+
+func TestSetURL(t *testing.T) {
+	client.SetURL("OkieDokie")
+	if client.BaseURL != "OkieDokie" {
+		t.Error("SetUrl didn't change URL")
+	}
+	client.SetURL("https://tiltify.com/api/v3/")
+}

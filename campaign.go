@@ -3,17 +3,12 @@ package tiltify
 import (
 	"encoding/json"
 	"fmt"
-	"net/http"
 )
 
 func (c *Client) GetCampaign(campaignNumber int) (*Campaign, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -28,11 +23,7 @@ func (c *Client) GetCampaign(campaignNumber int) (*Campaign, error) {
 func (c *Client) GetCampaignDonations(campaignNumber int) (*Donations, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d/donations", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -47,11 +38,7 @@ func (c *Client) GetCampaignDonations(campaignNumber int) (*Donations, error) {
 func (c *Client) GetCampaignRewards(campaignNumber int) (*Rewards, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d/rewards", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -66,11 +53,7 @@ func (c *Client) GetCampaignRewards(campaignNumber int) (*Rewards, error) {
 func (c *Client) GetCampaignPolls(campaignNumber int) (*Polls, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d/polls", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -85,11 +68,7 @@ func (c *Client) GetCampaignPolls(campaignNumber int) (*Polls, error) {
 func (c *Client) GetCampaignChallenges(campaignNumber int) (*Challenges, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d/challenges", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -104,11 +83,7 @@ func (c *Client) GetCampaignChallenges(campaignNumber int) (*Challenges, error) 
 func (c *Client) GetCampaignSchedule(campaignNumber int) (*Schedule, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d/schedule", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}
@@ -123,11 +98,7 @@ func (c *Client) GetCampaignSchedule(campaignNumber int) (*Schedule, error) {
 func (c *Client) GetCampaignSupportingCampaigns(campaignNumber int) (*SupportingCampaigns, error) {
 	url := fmt.Sprintf(c.BaseURL+"campaigns/%d/schedule", campaignNumber)
 	fmt.Println("Making request to " + url)
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	bytes, err := c.doRequest(req)
+	bytes, err := c.SetupAndDo(url)
 	if err != nil {
 		return nil, err
 	}

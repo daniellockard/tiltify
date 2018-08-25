@@ -41,3 +41,15 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	}
 	return body, nil
 }
+
+func (c *Client) SetupAndDo(url string) ([]byte, error) {
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+	bytes, err := c.doRequest(req)
+	if err != nil {
+		return nil, err
+	}
+	return bytes, err
+}
