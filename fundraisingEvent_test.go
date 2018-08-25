@@ -44,6 +44,7 @@ func TestFundraisingEventLeaderboards(t *testing.T) {
 }
 
 func TestFundraisingEventRegistrations(t *testing.T) {
+	t.Skip("Cant look up registrations for an event I don't own")
 	object, err := client.GetFundraisingEventRegistrations(1)
 	if err != nil || object == nil {
 		t.Error("Could not get fundraising-event registrations for ID 1")
