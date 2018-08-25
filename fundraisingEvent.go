@@ -111,7 +111,7 @@ func (c *Client) GetFundraisingEventRegistrationFields(eventID int) (*Fundraisin
 }
 
 func (c *Client) GetFundraisingEventSchedule(eventID int) (*FundraisingEventSchedule, error) {
-	url := fmt.Sprintf(c.BaseURL+"fundraising-events/%d/registration-fields", eventID)
+	url := fmt.Sprintf(c.BaseURL+"fundraising-events/%d/schedule", eventID)
 	fmt.Println("Making request to " + url)
 	bytes, err := c.SetupAndDo(url)
 	if err != nil {
@@ -126,7 +126,7 @@ func (c *Client) GetFundraisingEventSchedule(eventID int) (*FundraisingEventSche
 }
 
 func (c *Client) GetFundraisingEventVisibilityOptions(eventID int) (*FundraisingEventVisibilityOptions, error) {
-	url := fmt.Sprintf(c.BaseURL+"fundraising-events/%d/registration-fields", eventID)
+	url := fmt.Sprintf(c.BaseURL+"fundraising-events/%d/visibility-options", eventID)
 	fmt.Println("Making request to " + url)
 	bytes, err := c.SetupAndDo(url)
 	if err != nil {
