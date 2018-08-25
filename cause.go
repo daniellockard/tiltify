@@ -134,7 +134,7 @@ func (c *Client) PatchCauseVisibilityOptions(causeNumber int, patchData []byte) 
 }
 
 func (c *Client) GetCausePermissions(causeNumber int) (*CausePermissions, error) {
-	url := fmt.Sprintf(c.BaseURL+"causes/%d/visibility-options", causeNumber)
+	url := fmt.Sprintf(c.BaseURL+"causes/%d/permissions", causeNumber)
 	fmt.Println("Making request to " + url)
 	bytes, err := c.SetupAndDo(url)
 	if err != nil {

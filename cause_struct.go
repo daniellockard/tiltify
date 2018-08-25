@@ -132,55 +132,115 @@ type CauseEvents struct {
 	Data []struct {
 		ID          int    `json:"id"`
 		Name        string `json:"name"`
+		StartsAt    string `json:"startsAt"`
+		EndsAt      string `json:"endsAt"`
 		Slug        string `json:"slug"`
-		URL         string `json:"url"`
 		Description string `json:"description"`
-		Video       struct {
-			Src    string `json:"src"`
-			Alt    string `json:"alt"`
-			Width  int    `json:"width"`
-			Height int    `json:"height"`
-		} `json:"video"`
-		Image struct {
+		Image       struct {
 			Src    string `json:"src"`
 			Alt    string `json:"alt"`
 			Width  int    `json:"width"`
 			Height int    `json:"height"`
 		} `json:"image"`
+		ContactEmail string `json:"contactEmail"`
+		Message      string `json:"message"`
+		Logo         struct {
+			Src    string `json:"src"`
+			Alt    string `json:"alt"`
+			Width  int    `json:"width"`
+			Height int    `json:"height"`
+		} `json:"logo"`
+		Video  interface{} `json:"video"`
 		Avatar struct {
 			Src    string `json:"src"`
 			Alt    string `json:"alt"`
 			Width  int    `json:"width"`
 			Height int    `json:"height"`
 		} `json:"avatar"`
-		Logo struct {
-			Src    string `json:"src"`
-			Alt    string `json:"alt"`
-			Width  int    `json:"width"`
-			Height int    `json:"height"`
-		} `json:"logo"`
 		Banner struct {
 			Src    string `json:"src"`
 			Alt    string `json:"alt"`
 			Width  int    `json:"width"`
 			Height int    `json:"height"`
 		} `json:"banner"`
-		BannerTitle  string `json:"bannerTitle"`
-		BannerIntro  string `json:"bannerIntro"`
-		Currency     string `json:"currency"`
-		Goal         int    `json:"goal"`
-		AmountRaised int    `json:"amountRaised"`
-		StartsOn     string `json:"startsOn"`
-		EndsOn       string `json:"endsOn"`
-		CauseID      int    `json:"causeId"`
+		Parent struct {
+			ID   int    `json:"id"`
+			Name string `json:"name"`
+			Slug string `json:"slug"`
+		} `json:"parent"`
+		Status           string `json:"status"`
+		ShortDescription string `json:"shortDescription"`
+		Settings         struct {
+			VisibilityOptions struct {
+				StartsAt struct {
+					Visible bool `json:"visible"`
+				} `json:"startsAt"`
+				EndsAt struct {
+					Visible bool `json:"visible"`
+				} `json:"endsAt"`
+				FundraiserGoalAmount struct {
+					Type    string `json:"type"`
+					Visible bool   `json:"visible"`
+				} `json:"fundraiserGoalAmount"`
+				IndividualLeaderboard struct {
+					Visible bool `json:"visible"`
+				} `json:"individualLeaderboard"`
+				TeamLeaderboard struct {
+					Type    string `json:"type"`
+					Visible bool   `json:"visible"`
+				} `json:"teamLeaderboard"`
+				DonorLeaderboard struct {
+					Type    string `json:"type"`
+					Visible bool   `json:"visible"`
+				} `json:"donorLeaderboard"`
+				PreventDonationsBeforeStart struct {
+					Visible bool `json:"visible"`
+				} `json:"preventDonationsBeforeStart"`
+				Registration struct {
+					Visible bool `json:"visible"`
+				} `json:"registration"`
+				SustainedGiving struct {
+					Visible bool `json:"visible"`
+				} `json:"sustainedGiving"`
+				SustainedGivingStats struct {
+					Visible bool `json:"visible"`
+				} `json:"sustainedGivingStats"`
+				Donate struct {
+					Visible bool `json:"visible"`
+				} `json:"donate"`
+			} `json:"visibilityOptions"`
+			RegistrationFields struct {
+				Address struct {
+					Enabled  bool `json:"enabled"`
+					Position int  `json:"position"`
+					Required bool `json:"required"`
+				} `json:"address"`
+				PhoneNumber struct {
+					Enabled  bool `json:"enabled"`
+					Position int  `json:"position"`
+					Required bool `json:"required"`
+				} `json:"phoneNumber"`
+				ShirtSize struct {
+					Enabled  bool `json:"enabled"`
+					Position int  `json:"position"`
+					Required bool `json:"required"`
+				} `json:"shirtSize"`
+				ServiceHours struct {
+					Enabled  bool `json:"enabled"`
+					Position int  `json:"position"`
+					Required bool `json:"required"`
+				} `json:"serviceHours"`
+			} `json:"registrationFields"`
+			Colors struct {
+				Highlight string `json:"highlight"`
+			} `json:"colors"`
+			HeaderTitle string `json:"headerTitle"`
+		} `json:"settings"`
+		TotalAmountRaised    float64 `json:"totalAmountRaised"`
+		CauseID              int     `json:"causeId"`
+		FundraiserGoalAmount float64 `json:"fundraiserGoalAmount"`
+		Type                 string  `json:"type"`
 	} `json:"data"`
-	Links struct {
-		Prev  string `json:"prev"`
-		Next  string `json:"next"`
-		Self  string `json:"self"`
-		First string `json:"first"`
-		Last  string `json:"last"`
-	} `json:"links"`
 }
 
 type CauseLeaderboard struct {

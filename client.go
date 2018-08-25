@@ -23,7 +23,7 @@ func (c *Client) SetAuthKey(key string) {
 
 func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	client := &http.Client{}
-	ctx, cancelFunc := context.WithTimeout(context.TODO(), time.Millisecond*1000)
+	ctx, cancelFunc := context.WithTimeout(context.TODO(), time.Second*30)
 	defer cancelFunc()
 	req.Header.Add("Authorization", "Bearer "+c.AuthKey)
 	req = req.WithContext(ctx)
