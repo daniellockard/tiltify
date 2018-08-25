@@ -10,7 +10,7 @@ import (
 var client = tiltify.Client{}
 
 func TestMain(m *testing.M) {
-	client.SetAuthKey("7385153a4b13d4b4fe5381b51151560367fc8cfa7700325188042ac63f75581a")
+	client.SetAuthKey("AUTH_KEY_HERE")
 	client.SetURL("https://tiltify.com/api/v3/")
 	os.Exit(m.Run())
 }
