@@ -77,27 +77,27 @@ type Rewards struct {
 		Status int `json:"status"`
 	} `json:"meta"`
 	Data []struct {
-		ID                      int         `json:"id"`
-		Name                    string      `json:"name"`
-		Description             string      `json:"description"`
-		Amount                  int         `json:"amount"`
-		Kind                    string      `json:"kind"`
-		Quantity                interface{} `json:"quantity"`
-		Remaining               interface{} `json:"remaining"`
-		FairMarketValue         int         `json:"fairMarketValue"`
-		Currency                string      `json:"currency"`
-		ShippingAddressRequired bool        `json:"shippingAddressRequired"`
-		ShippingNote            interface{} `json:"shippingNote"`
-		Image                   struct {
+		Image struct {
 			Src    string `json:"src"`
 			Alt    string `json:"alt"`
 			Width  int    `json:"width"`
 			Height int    `json:"height"`
-		} `json:"image"`
-		Active    bool  `json:"active"`
-		StartsAt  int   `json:"startsAt"`
-		CreatedAt int64 `json:"createdAt"`
-		UpdatedAt int64 `json:"updatedAt"`
+		}
+		Name                    string
+		Description             string
+		Kind                    string
+		Quantity                interface{}
+		Remaining               interface{}
+		Currency                string
+		ShippingNote            interface{}
+		ID                      int
+		Amount                  int
+		FairMarketValue         int
+		StartsAt                int
+		CreatedAt               int64
+		UpdatedAt               int64
+		ShippingAddressRequired bool
+		Active                  bool
 	} `json:"data"`
 }
 
