@@ -12,3 +12,7 @@ client.GetCampaignDonations(4814)
  ```
 
 To run tests, you'll need to set an auth key in `campaign_test.go`
+
+
+There is no pagniation implemented in this API client as I do not have examples
+with paging to test with.
